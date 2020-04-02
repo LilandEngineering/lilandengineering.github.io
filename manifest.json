@@ -1,6 +1,6 @@
 {
-    "name": "plastic_fantastic",
-    "short_name": "plastic_fantastic",
+    "name": "plastic_fantastic_release",
+    "short_name": "plastic_fantastic_release",
     "start_url": ".",
     "display": "minimal-ui",
     "background_color": "#0175C2",
