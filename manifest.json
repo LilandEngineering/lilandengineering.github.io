@@ -1,6 +1,6 @@
 {
-    "name": "plastic_fantastic_release",
-    "short_name": "plastic_fantastic_release",
+    "name": "alge_app",
+    "short_name": "alge_app",
     "start_url": ".",
     "display": "minimal-ui",
     "background_color": "#0175C2",
