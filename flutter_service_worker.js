@@ -3,20 +3,24 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "3b3ac12836cca54298b18cddfe43cfb3",
-"assets/assets/ATicon.jpg": "33ef919d91fda6cd289635611a0e2afc",
-"assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
+  "assets/AssetManifest.json": "6e7ee57644b5d6dd4c36a8b7c8abae0c",
+"assets/assets/Didaktisk_diamant.png": "828cf3d6344aee4a23ffd1a3401de609",
+"assets/assets/Didaktisk_diamant_rett.png": "318581bd81efd28a2bbb03a4bb62fe72",
+"assets/FontManifest.json": "5a32d4310a6f5d9a6b651e75ba0d7372",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "0816780d3809afb0789c18263e856068",
+"assets/NOTICES": "68d7038ced30dc09e1a6c1c75d032734",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
+"assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "831eb40a2d76095849ba4aecd4340f19",
+"assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "a126c025bab9a1b4d8ac5534af76a208",
+"assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "d80ca32233940ebadc5ae5372ccd67f9",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "101f1b8aca68198c913c64e684a1a483",
-"/": "101f1b8aca68198c913c64e684a1a483",
-"main.dart.js": "43791054dac4d3ac2cadd2027f014cc5",
-"manifest.json": "291a1414a66c43951c84715c2a439cc4",
-"version.json": "066113c835f98d90779c4e572b1077d1"
+"index.html": "835c97af24399870b46d720b86975614",
+"/": "835c97af24399870b46d720b86975614",
+"main.dart.js": "deec1ac8c82245e6f7722b3bcaca71b6",
+"manifest.json": "9d194163cf96f51b7e7632d86c05a7a9",
+"version.json": "520fafc6a849a9424daf43d0b200319b"
 };
 
 // The application shell files that are downloaded before a service worker can
@@ -34,7 +38,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });
@@ -160,7 +164,7 @@ async function downloadOffline() {
     }
     currentContent[key] = true;
   }
-  for (var resourceKey in Object.keys(RESOURCES)) {
+  for (var resourceKey of Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
       resources.push(resourceKey);
     }
